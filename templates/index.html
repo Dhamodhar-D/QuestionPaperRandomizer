@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Question Paper Generator</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 30px; }
+    .box { background: white; padding: 20px; max-width: 500px; margin: auto; border-radius: 10px; }
+    label, input, button { display: block; width: 100%; margin-top: 10px; }
+    button { background: green; color: white; border: none; padding: 10px; }
+    a { text-decoration: none; color: white; background: blue; padding: 10px; display: inline-block; margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Upload PDF and Generate Question Papers</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <label>Upload PDF</label>
+      <input type="file" name="pdf_file" required>
+      <label>Number of versions</label>
+      <input type="number" name="num_papers" min="1" value="3" required>
+      <button type="submit">Generate</button>
+    </form>
+
+    {% if download_link %}
+      <a href="{{ download_link }}">Download ZIP</a>
+    {% endif %}
+  </div>
+</body>
+</html>
